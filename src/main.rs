@@ -1,3 +1,4 @@
+mod shared;
 mod huffman_coding;
 mod examples;
 

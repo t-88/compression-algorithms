@@ -1,10 +1,12 @@
 use std;
-
 use crate::huffman_coding;
+
+
 pub fn huffman_example() {
     let mut input_str = "".to_string();
     println!("input str to decode:");
     std::io::stdin().read_line(&mut input_str).unwrap();
+    input_str.pop();
     println!();
 
     let mut coder = huffman_coding::HuffmanCoder::new();

@@ -1,5 +1,7 @@
 use std::{collections::HashMap, char};
 
+use crate::shared::generate_freq_table;
+
 
 #[derive(Debug,Clone)]
 pub struct  Node {
@@ -55,7 +57,7 @@ impl PriorityQueue {
 pub struct HuffmanCoder {
     pub message : String,
     pub encoding_table : HashMap<char,String>,
-    char_freq : HashMap<char,u128>,
+    char_freq : HashMap<char,usize>,
     node_queue : PriorityQueue, 
 
 }
@@ -101,20 +103,14 @@ impl HuffmanCoder {
     pub fn encode(&mut self,msg : &String) -> String {
         self.message = msg.to_string();
         let mut out_str = String::from("");
+        self.char_freq = generate_freq_table(&self.message);
 
-        for chr in self.message.chars()  {
-            let freq = match self.char_freq.get(&chr) {
-                None => 0,
-                Some(x) => *x
-            };
-            self.char_freq.insert(chr, freq + 1);
-        }
-
+        
         for key in self.char_freq.keys()  {
             self.node_queue.push(
                 FreqNode {
                 val: NodeType::Leaf(*key), 
-                freq: self.char_freq[key]
+                freq: self.char_freq[key] as u128
             });
         }
         if self.node_queue.queue.len() == 0 { 
