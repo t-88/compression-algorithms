@@ -1,5 +1,8 @@
 # Compression
-learning about compression from this [book](./compression.pdf)
+reading about compression for some reason
+
+# Resources
+check out [resources](./resources.md)
 
 # Done List
 - [X] Huffman Codes 

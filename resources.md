@@ -1,0 +1,2 @@
+- [Introduction to Data Compression](./compression.pdf)
+- [Data Compression (Summer 2023)](https://www.youtube.com/watch?v=J_M2fvkOPkc&list=PLU4IQLU9e_OrY8oASHx0u3IXAL9TOdidm)
