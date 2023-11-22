@@ -1,6 +1,5 @@
 use std::{collections::HashMap, char};
-
-use crate::shared::generate_freq_table;
+use crate::shared;
 
 
 #[derive(Debug,Clone)]
@@ -103,7 +102,7 @@ impl HuffmanCoder {
     pub fn encode(&mut self,msg : &String) -> String {
         self.message = msg.to_string();
         let mut out_str = String::from("");
-        self.char_freq = generate_freq_table(&self.message);
+        self.char_freq = shared::generate_freq_table(&self.message);
 
         
         for key in self.char_freq.keys()  {
